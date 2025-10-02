@@ -23,11 +23,7 @@ namespace Revo.DependencyInjection.Tests
         /// <param name="context">The module configuration context.</param>
         public override void Configure(IServiceRegistry registry, IModuleConfigurationContext context)
         {
-            // Register basic services
-            registry.RegisterSingleton<ITestService, TestService>();
-            registry.RegisterTransient<IAnotherTestService, AnotherTestService>();
-            
-            // Register service with multiple interfaces
+            // Register service with multiple interfaces (this covers both ITestService and IAnotherTestService)
             registry.RegisterMultiple(
                 new[] { typeof(ITestService), typeof(IAnotherTestService) },
                 typeof(MultiInterfaceService),
