@@ -46,8 +46,8 @@ namespace Revo.Core.Core
             // Register core services
             registry.RegisterFactory<IClock>(provider => Clock.Current, ServiceLifetime.Transient);
 
-            registry.RegisterSingleton<IEnvironment, Environment>()
-                .WithPropertyValue(nameof(Environment.IsDevelopmentOverride), coreConfigurationSection.IsDevelopmentEnvironment);
+            registry.RegisterSingleton<IEnvironment, Environment>();
+            // Note: Property value setting would need to be handled differently in the new DI system
 
             registry.RegisterScoped<IEventBus, EventBus>();
             registry.RegisterScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();

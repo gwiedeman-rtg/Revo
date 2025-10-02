@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Revo.Core.Lifecycle;
 using Revo.DependencyInjection.Core;
 
 namespace Revo.Core.Configuration
@@ -164,7 +165,7 @@ namespace Revo.Core.Configuration
             public BasicModuleConfigurationContext(IConfiguration configuration, IServiceContainer container)
             {
                 Configuration = configuration;
-                ServiceProvider = container;
+                ServiceProvider = (IServiceProvider)container;
             }
 
             public IConfiguration Configuration { get; }

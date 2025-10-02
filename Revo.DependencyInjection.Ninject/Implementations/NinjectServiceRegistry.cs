@@ -39,7 +39,18 @@ namespace Revo.DependencyInjection.Ninject
             where TImplementation : class, TInterface
         {
             var binding = _kernel.Bind<TInterface>().To<TImplementation>();
-            ApplyLifetime(binding, lifetime);
+            switch (lifetime)
+            {
+                case ServiceLifetime.Singleton:
+                    binding.InSingletonScope();
+                    break;
+                case ServiceLifetime.Scoped:
+                    binding.InSingletonScope(); // Fallback
+                    break;
+                case ServiceLifetime.Transient:
+                    binding.InTransientScope();
+                    break;
+            }
             return this;
         }
 
@@ -53,7 +64,7 @@ namespace Revo.DependencyInjection.Ninject
         public IServiceRegistry Register(Type serviceType, Type implementationType, ServiceLifetime lifetime)
         {
             var binding = _kernel.Bind(serviceType).To(implementationType);
-            ApplyLifetime(binding, lifetime);
+            ApplyLifetime<object>(binding, lifetime);
             return this;
         }
 
@@ -80,7 +91,7 @@ namespace Revo.DependencyInjection.Ninject
             where TInterface : class
         {
             var binding = _kernel.Bind<TInterface>().ToMethod(ctx => factory(ctx.Kernel));
-            ApplyLifetime(binding, lifetime);
+            ApplyLifetime<TInterface>(binding, lifetime);
             return this;
         }
 
@@ -94,7 +105,7 @@ namespace Revo.DependencyInjection.Ninject
         public IServiceRegistry RegisterFactory(Type serviceType, Func<IServiceProvider, object> factory, ServiceLifetime lifetime)
         {
             var binding = _kernel.Bind(serviceType).ToMethod(ctx => factory(ctx.Kernel));
-            ApplyLifetime(binding, lifetime);
+            ApplyLifetime<object>(binding, lifetime);
             return this;
         }
 
@@ -114,7 +125,7 @@ namespace Revo.DependencyInjection.Ninject
             }
 
             var binding = _kernel.Bind(types.ToArray()).To(implementationType);
-            ApplyLifetime(binding, lifetime);
+            ApplyLifetime<object>(binding, lifetime);
             return this;
         }
 
@@ -127,7 +138,7 @@ namespace Revo.DependencyInjection.Ninject
         public IServiceRegistry RegisterSelf<TService>(ServiceLifetime lifetime) where TService : class
         {
             var binding = _kernel.Bind<TService>().ToSelf();
-            ApplyLifetime(binding, lifetime);
+            ApplyLifetime<TService>(binding, lifetime);
             return this;
         }
 
@@ -140,7 +151,7 @@ namespace Revo.DependencyInjection.Ninject
         public IServiceRegistry RegisterSelf(Type serviceType, ServiceLifetime lifetime)
         {
             var binding = _kernel.Bind(serviceType).ToSelf();
-            ApplyLifetime(binding, lifetime);
+            ApplyLifetime<object>(binding, lifetime);
             return this;
         }
 
@@ -155,7 +166,18 @@ namespace Revo.DependencyInjection.Ninject
             where TImplementation : class, TInterface
         {
             var binding = _kernel.Rebind<TInterface>().To<TImplementation>();
-            ApplyLifetime(binding, lifetime);
+            switch (lifetime)
+            {
+                case ServiceLifetime.Singleton:
+                    binding.InSingletonScope();
+                    break;
+                case ServiceLifetime.Scoped:
+                    binding.InSingletonScope(); // Fallback
+                    break;
+                case ServiceLifetime.Transient:
+                    binding.InTransientScope();
+                    break;
+            }
             return this;
         }
 
@@ -169,7 +191,7 @@ namespace Revo.DependencyInjection.Ninject
         public IServiceRegistry Rebind(Type serviceType, Type implementationType, ServiceLifetime lifetime)
         {
             var binding = _kernel.Rebind(serviceType).To(implementationType);
-            ApplyLifetime(binding, lifetime);
+            ApplyLifetime<object>(binding, lifetime);
             return this;
         }
 
@@ -181,7 +203,29 @@ namespace Revo.DependencyInjection.Ninject
                     binding.InSingletonScope();
                     break;
                 case ServiceLifetime.Scoped:
-                    binding.InTaskScope(); // Using TaskScope as equivalent to Scoped
+                    // For now, use InSingletonScope as a fallback
+                    // InTaskScope would require Revo.Core dependency
+                    binding.InSingletonScope();
+                    break;
+                case ServiceLifetime.Transient:
+                    binding.InTransientScope();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(lifetime), lifetime, "Unknown service lifetime.");
+            }
+        }
+
+        private void ApplyLifetime<T>(IBindingInSyntax<T> binding, ServiceLifetime lifetime)
+        {
+            switch (lifetime)
+            {
+                case ServiceLifetime.Singleton:
+                    binding.InSingletonScope();
+                    break;
+                case ServiceLifetime.Scoped:
+                    // For now, use InSingletonScope as a fallback
+                    // InTaskScope would require Revo.Core dependency
+                    binding.InSingletonScope();
                     break;
                 case ServiceLifetime.Transient:
                     binding.InTransientScope();

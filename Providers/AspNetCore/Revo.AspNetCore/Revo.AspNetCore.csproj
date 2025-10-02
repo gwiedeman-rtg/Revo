@@ -19,6 +19,8 @@ Entity Framework (EF) Core data-access layer implementation.</Description>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Revo.Infrastructure\Revo.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Hangfire\Revo.Hangfire\Revo.Hangfire.csproj" />
+    <ProjectReference Include="..\..\..\Revo.DependencyInjection.Core\Revo.DependencyInjection.Core.csproj" />
+    <ProjectReference Include="..\..\..\Revo.DependencyInjection.Ninject\Revo.DependencyInjection.Ninject.csproj" />
   </ItemGroup>
 
 </Project>

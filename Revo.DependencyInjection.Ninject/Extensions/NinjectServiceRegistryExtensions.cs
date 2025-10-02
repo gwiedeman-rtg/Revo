@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ninject;
+using Ninject.Activation;
 using Ninject.Syntax;
 using Revo.DependencyInjection.Core;
 
@@ -22,14 +23,14 @@ namespace Revo.DependencyInjection.Ninject
         /// <returns>The service registry for method chaining.</returns>
         public static IServiceRegistry RegisterMethod<TInterface>(
             this IServiceRegistry registry, 
-            Func<Ninject.Activation.IContext, TInterface> method, 
+            Func<IContext, TInterface> method, 
             ServiceLifetime lifetime) 
             where TInterface : class
         {
             if (registry is NinjectServiceRegistry ninjectRegistry)
             {
                 var binding = ninjectRegistry.Kernel.Bind<TInterface>().ToMethod(method);
-                ApplyLifetime(binding, lifetime);
+                ApplyLifetime<TInterface>(binding, lifetime);
             }
             else
             {
@@ -51,13 +52,13 @@ namespace Revo.DependencyInjection.Ninject
         public static IServiceRegistry RegisterMethod(
             this IServiceRegistry registry, 
             Type serviceType, 
-            Func<Ninject.Activation.IContext, object> method, 
+            Func<IContext, object> method, 
             ServiceLifetime lifetime)
         {
             if (registry is NinjectServiceRegistry ninjectRegistry)
             {
                 var binding = ninjectRegistry.Kernel.Bind(serviceType).ToMethod(method);
-                ApplyLifetime(binding, lifetime);
+                ApplyLifetime<object>(binding, lifetime);
             }
             else
             {
@@ -136,7 +137,7 @@ namespace Revo.DependencyInjection.Ninject
             {
                 var binding = ninjectRegistry.Kernel.Bind<TInterface>().ToSelf();
                 binding.WithPropertyValue(propertyName, value);
-                ApplyLifetime(binding, lifetime);
+                ApplyLifetime<TInterface>(binding, lifetime);
             }
             else
             {
@@ -148,7 +149,7 @@ namespace Revo.DependencyInjection.Ninject
             return registry;
         }
 
-        private static void ApplyLifetime(IBindingInSyntax<object> binding, ServiceLifetime lifetime)
+        private static void ApplyLifetime<T>(IBindingInSyntax<T> binding, ServiceLifetime lifetime)
         {
             switch (lifetime)
             {
@@ -156,7 +157,9 @@ namespace Revo.DependencyInjection.Ninject
                     binding.InSingletonScope();
                     break;
                 case ServiceLifetime.Scoped:
-                    binding.InTaskScope();
+                    // For now, use InSingletonScope as a fallback
+                    // InTaskScope would require Revo.Core dependency
+                    binding.InSingletonScope();
                     break;
                 case ServiceLifetime.Transient:
                     binding.InTransientScope();

@@ -106,7 +106,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.Tools.DatabaseMigrator
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.Extensions.AutoMapper", "Extensions\Revo.Extensions.AutoMapper\Revo.Extensions.AutoMapper.csproj", "{E3A99A37-EF26-4EE9-BE72-F869AC8EC3CD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.DependencyInjection.Core", "Revo.DependencyInjection.Core\Revo.DependencyInjection.Core.csproj", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.DependencyInjection.Ninject", "Revo.DependencyInjection.Ninject\Revo.DependencyInjection.Ninject.csproj", "{F70DB962-A0D1-43D2-9ABB-00B1E5E4F74F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.DependencyInjection.Tests", "Tests\Revo.DependencyInjection.Tests\Revo.DependencyInjection.Tests.csproj", "{89C35A6E-60FE-45BB-ABA2-5DC6E8549B47}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.Examples.DependencyInjection", "Examples\Revo.Examples.DependencyInjection\Revo.Examples.DependencyInjection.csproj", "{E4A40045-1393-465F-94F1-CE44765702AA}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6_IntegrationTests", "6_IntegrationTests", "{4B3444F3-30D5-4347-AD6B-DACC118685B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ninject", "Ninject", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{95C6FEB1-3AD4-458C-9F29-A76BB30BF963}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -226,6 +238,22 @@ Global
 		{E3A99A37-EF26-4EE9-BE72-F869AC8EC3CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3A99A37-EF26-4EE9-BE72-F869AC8EC3CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3A99A37-EF26-4EE9-BE72-F869AC8EC3CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F70DB962-A0D1-43D2-9ABB-00B1E5E4F74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F70DB962-A0D1-43D2-9ABB-00B1E5E4F74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F70DB962-A0D1-43D2-9ABB-00B1E5E4F74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F70DB962-A0D1-43D2-9ABB-00B1E5E4F74F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89C35A6E-60FE-45BB-ABA2-5DC6E8549B47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C35A6E-60FE-45BB-ABA2-5DC6E8549B47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C35A6E-60FE-45BB-ABA2-5DC6E8549B47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C35A6E-60FE-45BB-ABA2-5DC6E8549B47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4A40045-1393-465F-94F1-CE44765702AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A40045-1393-465F-94F1-CE44765702AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A40045-1393-465F-94F1-CE44765702AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A40045-1393-465F-94F1-CE44765702AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -275,6 +303,11 @@ Global
 		{EC0E18C4-B6EA-47AE-AB6E-7FCC654C1FE9} = {5A3C5A38-4A06-43D0-BFDC-243A2CBB36EE}
 		{DD6B984E-3F40-4735-A030-1331F56EBACC} = {80BDC064-0388-4205-BA2A-ADB72ED29B38}
 		{E3A99A37-EF26-4EE9-BE72-F869AC8EC3CD} = {72197100-932A-45EF-B394-31F2C86CEC0E}
+		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890} = {FB1689F5-32FB-46A9-AA47-647A7F4A1686}
+		{F70DB962-A0D1-43D2-9ABB-00B1E5E4F74F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{89C35A6E-60FE-45BB-ABA2-5DC6E8549B47} = {95C6FEB1-3AD4-458C-9F29-A76BB30BF963}
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {25A48354-8863-4FC8-B85D-EDE6E2974EE5}
+		{95C6FEB1-3AD4-458C-9F29-A76BB30BF963} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C98B2018-4C0A-4011-94CB-77D70109215F}

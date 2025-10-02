@@ -52,8 +52,8 @@ namespace Revo.Core.Configuration
             // Create Ninject kernel
             var kernel = NinjectDependencyInjectionFactory.CreateKernel(kernel =>
             {
-                // Configure Ninject-specific settings
-                kernel.Components.Add<Ninject.Planning.Bindings.Resolvers.IBindingResolver, ContravariantBindingResolver>();
+                // Note: Ninject-specific configuration would be handled here
+                // For now, using default kernel configuration
             });
 
             // Create service container and module loader

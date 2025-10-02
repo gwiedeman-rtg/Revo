@@ -2,6 +2,7 @@ using System;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Ninject;
+using Ninject.Modules;
 using Revo.DependencyInjection.Core;
 
 namespace Revo.DependencyInjection.Ninject
@@ -38,7 +39,7 @@ namespace Revo.DependencyInjection.Ninject
         /// <param name="configuration">The configuration.</param>
         /// <param name="logger">The logger.</param>
         /// <returns>A new module loader.</returns>
-        public static IModuleLoader CreateModuleLoader(IKernel kernel, IConfiguration configuration, ILogger logger)
+        public static Revo.DependencyInjection.Core.IModuleLoader CreateModuleLoader(IKernel kernel, IConfiguration configuration, ILogger logger)
         {
             return new NinjectModuleLoader(kernel, configuration, logger);
         }

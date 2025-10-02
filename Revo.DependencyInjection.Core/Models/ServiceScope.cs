@@ -23,7 +23,7 @@ namespace Revo.DependencyInjection.Core
         /// <summary>
         /// Gets the service provider for this scope.
         /// </summary>
-        public IServiceProvider ServiceProvider => _container;
+        public IServiceProvider ServiceProvider => (IServiceProvider)_container;
 
         /// <summary>
         /// Gets a service of the specified type from this scope.

@@ -14,9 +14,6 @@ Core package of the framework.</Description>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Ninject" Version="3.3.6" />
-    <PackageReference Include="Ninject.Extensions.ContextPreservation" Version="3.3.1" />
-    <PackageReference Include="Ninject.Extensions.Factory" Version="3.3.3" />
     <PackageReference Include="System.Collections.Immutable" Version="9.0.4" />
   </ItemGroup>
 

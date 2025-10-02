@@ -190,7 +190,8 @@ namespace Revo.DependencyInjection.Ninject
 
             // Check configuration overrides
             var configKey = $"DependencyInjection:Modules:{type.FullName}:AutoLoad";
-            if (_configuration.GetValue<bool?>($"{configKey}") is bool configValue)
+            var configValueStr = _configuration[configKey];
+            if (bool.TryParse(configValueStr, out bool configValue))
             {
                 autoLoad = configValue;
             }
