@@ -18,6 +18,8 @@ Framework infrastruture package - event stores, projections, jobs, etc.</Descrip
 
   <ItemGroup>
     <ProjectReference Include="..\Revo.Domain\Revo.Domain.csproj" />
+    <ProjectReference Include="..\Revo.DependencyInjection.Core\Revo.DependencyInjection.Core.csproj" />
+    <ProjectReference Include="..\Revo.DependencyInjection.Ninject\Revo.DependencyInjection.Ninject.csproj" />
   </ItemGroup>
 
   <ItemGroup>

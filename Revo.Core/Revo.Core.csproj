@@ -21,6 +21,11 @@ Core package of the framework.</Description>
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Revo.DependencyInjection.Core\Revo.DependencyInjection.Core.csproj" />
+    <ProjectReference Include="..\Revo.DependencyInjection.Ninject\Revo.DependencyInjection.Ninject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="8.0.0" />
   </ItemGroup>
 
