@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Providers", "2_Providers", "{25A48354-8863-4FC8-B85D-EDE6E2974EE5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureEventHub", "AzureEventHub", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{FA35F569-6811-4765-86F4-BE4EBA44F5D1}"
 	ProjectSection(SolutionItems) = preProject
 		NuGet.config = NuGet.config
@@ -85,6 +87,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.AspNetCore.Tests", "Providers\AspNetCore\Tests\Revo.AspNetCore.Tests\Revo.AspNetCore.Tests.csproj", "{87DA49BF-B9DE-48B0-A50A-29105A2A9EDB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.EFCore.Tests", "Providers\EFCore\Tests\Revo.EFCore.Tests\Revo.EFCore.Tests.csproj", "{6A9774D6-F2BF-4D58-8BBF-80636A2D38CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.AzureEventHub", "Providers\AzureEventHub\Revo.AzureEventHub\Revo.AzureEventHub.csproj", "{B1C2D3E4-F5G6-7890-HIJK-LM1234567890}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.AzureEventHub.Tests", "Providers\AzureEventHub\Tests\Revo.AzureEventHub.Tests\Revo.AzureEventHub.Tests.csproj", "{C2D3E4F5-G6H7-8901-IJKL-MN2345678901}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revo.Examples.AzureEventHub", "Providers\AzureEventHub\Examples\Revo.Examples.AzureEventHub\Revo.Examples.AzureEventHub.csproj", "{D3E4F5G6-H7I8-9012-JKLM-NO3456789012}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Todos", "Todos", "{FC0DD76A-ABBB-451D-8B3E-384FCC5D8935}"
 EndProject
@@ -290,6 +298,18 @@ Global
 		{1F2C9816-A0BE-45EE-ACAB-910EF7211F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F2C9816-A0BE-45EE-ACAB-910EF7211F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F2C9816-A0BE-45EE-ACAB-910EF7211F41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1C2D3E4-F5G6-7890-HIJK-LM1234567890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1C2D3E4-F5G6-7890-HIJK-LM1234567890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1C2D3E4-F5G6-7890-HIJK-LM1234567890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1C2D3E4-F5G6-7890-HIJK-LM1234567890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D3E4F5-G6H7-8901-IJKL-MN2345678901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D3E4F5-G6H7-8901-IJKL-MN2345678901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D3E4F5-G6H7-8901-IJKL-MN2345678901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D3E4F5-G6H7-8901-IJKL-MN2345678901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E4F5G6-H7I8-9012-JKLM-NO3456789012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E4F5G6-H7I8-9012-JKLM-NO3456789012}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E4F5G6-H7I8-9012-JKLM-NO3456789012}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E4F5G6-H7I8-9012-JKLM-NO3456789012}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -353,6 +373,9 @@ Global
 		{F305F4CB-16BF-46A1-B047-F837F0E37C5B} = {25A48354-8863-4FC8-B85D-EDE6E2974EE5}
 		{E2810539-A231-4BFC-849F-62B3FD9987B5} = {F305F4CB-16BF-46A1-B047-F837F0E37C5B}
 		{2A1292E8-0FB0-4C2B-B77F-8EFBB92E4F28} = {E2810539-A231-4BFC-849F-62B3FD9987B5}
+		{B1C2D3E4-F5G6-7890-HIJK-LM1234567890} = {A1B2C3D4-E5F6-7890-ABCD-EF1234567890}
+		{C2D3E4F5-G6H7-8901-IJKL-MN2345678901} = {A1B2C3D4-E5F6-7890-ABCD-EF1234567890}
+		{D3E4F5G6-H7I8-9012-JKLM-NO3456789012} = {A1B2C3D4-E5F6-7890-ABCD-EF1234567890}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C98B2018-4C0A-4011-94CB-77D70109215F}
